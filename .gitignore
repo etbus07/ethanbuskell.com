@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code / impeccable tooling — not part of the site
+/.agents/
+/.impeccable/
+/.claude/
+/skills-lock.json

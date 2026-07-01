@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored impeccable skill tooling — not project source.
+    ".agents/**",
+    // Static assets (incl. the vendored Draco decoder) — not project source.
+    "public/**",
   ]),
 ]);
 
