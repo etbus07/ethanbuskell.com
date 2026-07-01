@@ -292,13 +292,11 @@ export default function Home() {
                   <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {items.map((p) => {
                       const featured = p.featured ?? false;
-                      return (
-                        <div
-                          key={p.name}
-                          className={`group rounded-[3px] border border-[#14161C]/15 bg-white p-5 transition-colors duration-200 hover:border-[#CE3F26] ${
-                            featured ? "md:col-span-2" : ""
-                          }`}
-                        >
+                      const cardClass = `group block rounded-[3px] border border-[#14161C]/15 bg-white p-5 transition-colors duration-200 hover:border-[#CE3F26] ${
+                        featured ? "md:col-span-2" : ""
+                      }`;
+                      const content = (
+                        <>
                           <div className="flex items-start justify-between gap-3">
                             <div className="flex items-center gap-2">
                               <h3 className="font-display font-medium text-[#14161C]">{p.name}</h3>
@@ -308,7 +306,9 @@ export default function Home() {
                                 </span>
                               )}
                             </div>
-                            <ArrowUpRight size={16} className="shrink-0 text-[#14161C]/25 transition-colors group-hover:text-[#CE3F26]" />
+                            {p.href && (
+                              <ArrowUpRight size={16} className="shrink-0 text-[#14161C]/25 transition-colors group-hover:text-[#CE3F26]" />
+                            )}
                           </div>
                           <p className="mt-2 text-pretty text-sm leading-relaxed text-[#5A5C64]">{p.description}</p>
                           {p.modules && (
@@ -327,6 +327,22 @@ export default function Home() {
                               </span>
                             ))}
                           </div>
+                        </>
+                      );
+                      return p.href ? (
+                        <a
+                          key={p.name}
+                          href={p.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${p.name} — open live site (opens in a new tab)`}
+                          className={cardClass}
+                        >
+                          {content}
+                        </a>
+                      ) : (
+                        <div key={p.name} className={cardClass}>
+                          {content}
                         </div>
                       );
                     })}

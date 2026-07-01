@@ -87,6 +87,7 @@ export const projects: Project[] = [
       "Ski-holiday travel agency with a Node.js backend, AI-driven price estimates, and a MySQL database. Hosted on Render.",
     stack: ["Node.js", "MySQL", "AI"],
     category: "Software",
+    href: "https://webtrips.co.uk/",
   },
   {
     name: "County Cutters",
@@ -94,6 +95,7 @@ export const projects: Project[] = [
       "Landscaping business website, hand-built and deployed on GitHub Pages — used to advertise and run a small landscaping business.",
     stack: ["HTML", "CSS", "GitHub Pages"],
     category: "Software",
+    href: "https://countycutters.github.io/index.html",
   },
   {
     name: "Resale Deal-Finder",
